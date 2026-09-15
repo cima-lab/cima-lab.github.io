@@ -1,0 +1,217 @@
+/*
+  CIMA Lab website - css/pages/people.css
+  Page-specific styles for people.html only.
+  Load order: variables.css -> theme.css -> site.css -> pages/people.css
+  Every value is a token from variables.css (or a brand hover colour already
+  defined on .soc in site.css). No new colours, one shadow, pill / card radii.
+*/
+
+/* ---------- Page head ----------
+   .page-head.with-art in site.css makes .wrap a two-column grid; .ph-text is
+   the left grid item. min-width:0 stops the long lede from forcing the column
+   wider than its track. No max-width on the heading or lede - the text block
+   spans the full width of its column. The cover art is transparent and sits
+   unframed on the light page-head gradient (site.css .page-head .art). */
+.page-head .ph-text { min-width: 0; }
+
+/* ---------- Jump pills in the page head ---------- */
+.jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+  margin-top: var(--spacing-24);
+}
+.jump a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  min-height: 44px;
+  padding: var(--spacing-8) var(--spacing-16);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-full);
+  background: var(--paper);
+  color: var(--navy-deep);
+  font-size: var(--text-small);
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color .18s var(--ease), background .18s var(--ease);
+}
+.jump a:hover { border-color: var(--navy); background: var(--navy-soft); }
+.jump a .n {
+  font-family: var(--mono);
+  font-size: var(--text-micro);
+  font-weight: 400;
+  color: var(--ink-3);
+}
+.jump a:hover .n { color: var(--navy); }
+
+/* ---------- Group heading (site.css .role-h) - count on the right ----------
+   The group headings are <h2>, so `section.sec h2` in site.css wins over the
+   bare `.role-h` rule. Restore the mono label treatment at equal weight.
+   Anchor offset comes from html { scroll-padding-top } in site.css - do not
+   add scroll-margin-top here or the two offsets stack. */
+section.sec h2.role-h {
+  font-family: var(--mono);
+  font-size: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  line-height: var(--leading-body);
+  align-items: baseline;
+  margin-top: clamp(28px, 4vw, 44px);
+}
+section.sec h2.role-h:first-of-type { margin-top: 0; }
+.role-h .cnt { color: var(--ink-3); white-space: nowrap; }
+
+/* ---------- Person list ---------- */
+.people {
+  display: grid;
+  gap: var(--spacing-16);
+}
+
+/* ---------- Person card (horizontal, .hcard family) ---------- */
+.person {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: var(--spacing-20) var(--spacing-24);
+  align-items: start;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-xl);
+  padding: clamp(18px, 3vw, 28px);
+  box-shadow: var(--shadow);
+  transition: border-color .18s var(--ease);
+}
+.person:hover { border-color: var(--navy); }
+
+/* Avatar: circular photo from assets/people/<slug>.jpg.
+   Sizes step 96 / 128 / 160 and the .person grid track steps with them. */
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: var(--radius-circle);
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: var(--navy);
+  flex: none;
+}
+.avatar.red { background: var(--cud-red); }
+.avatar.muted { background: var(--navy-soft); }
+.avatar .initials {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 2.4rem;
+  color: var(--navy);
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-circle);
+}
+@media (min-width: 700px) {
+  .person { grid-template-columns: 128px minmax(0, 1fr); }
+  .avatar { width: 128px; height: 128px; }
+}
+@media (min-width: 1024px) {
+  .person { grid-template-columns: 160px minmax(0, 1fr); }
+  .avatar { width: 160px; height: 160px; }
+}
+
+/* Person body */
+.person .pbody { min-width: 0; }
+.person h3 {
+  font-size: var(--text-heading-sm);
+  margin: 0;
+}
+.person .ptitle {
+  color: var(--cud-red-dark);
+  font-size: var(--text-body);
+  font-weight: 600;
+  margin-top: var(--spacing-4);
+}
+.person .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4) var(--spacing-16);
+  font-size: var(--text-small);
+  color: var(--ink-3);
+  margin-top: var(--spacing-6);
+}
+.person .meta b { color: var(--navy-deep); font-weight: 600; }
+.person .bio {
+  color: var(--ink-2);
+  font-size: var(--text-body);
+  margin-top: var(--spacing-12);
+}
+.person .tags { margin-top: var(--spacing-12); }
+.person .soc { margin-top: var(--spacing-16); }
+
+/* Alumni look */
+.person.alumni { background: var(--paper-2); box-shadow: none; }
+.person.alumni h3 { color: var(--navy); }
+.person.alumni .ptitle { color: var(--ink-2); }
+.person.alumni .soc a,
+.person.alumni .soc span.off { background: var(--paper); }
+
+/* Narrow screens: stack the photo above the text so the bio keeps a readable measure */
+@media (max-width: 640px) {
+  .person { gap: var(--spacing-16); }
+}
+@media (max-width: 520px) {
+  .person { grid-template-columns: 1fr; justify-items: start; }
+  .avatar { width: 112px; height: 112px; }
+  .person .soc { gap: var(--spacing-6); }
+}
+
+/* ---------- Open roles teaser ---------- */
+.card.dashed {
+  border-style: dashed;
+  border-color: var(--navy);
+  background: var(--paper-2);
+  box-shadow: none;
+  padding: clamp(18px, 3vw, 28px);
+}
+.card.dashed > p {
+  max-width: 68ch;
+  margin-top: var(--spacing-6);
+}
+/* Two columns keeps every role title on a single line - four across forces
+   "Undergraduate Research Student" to wrap and the row reads ragged. */
+.roles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-10);
+  margin-top: var(--spacing-20);
+}
+@media (min-width: 700px) { .roles { grid-template-columns: 1fr 1fr; } }
+.roles a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-10);
+  min-height: 56px;
+  padding: var(--spacing-12) var(--spacing-16);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--r);
+  color: var(--navy-deep);
+  font-size: var(--text-body);
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color .18s var(--ease), color .18s var(--ease);
+}
+.roles a:hover { border-color: var(--navy); color: var(--cud-red-dark); }
+.roles a svg { width: 16px; height: 16px; flex: none; color: var(--ink-3); }
+.roles a:hover svg { color: var(--cud-red-dark); }
+
+/* ---------- Partner strip: 6 items, so lock to 3 x 2 / 2 x 3 / 1 x 6 ----------
+   The shared auto-fit rule in site.css would fit 5 across and leave an orphan. */
+.partners { grid-template-columns: 1fr; }
+@media (min-width: 560px) { .partners { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .partners { grid-template-columns: repeat(3, 1fr); } }

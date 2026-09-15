@@ -1,0 +1,204 @@
+/*
+  Helix theme.css — reusable component classes for CIMA Lab pages.
+  Include variables.css before this file. Together they reproduce the
+  look of brief.html / brand.html / presence.html / helix-variations/index.html.
+*/
+
+/* Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--paper-2);
+  color: var(--ink);
+  font-size: var(--text-base);
+  line-height: var(--leading-base);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--cud-red-dark); }
+
+/* Kicker label */
+.k {
+  font-family: var(--mono);
+  font-size: var(--text-caption);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--cud-red);
+}
+
+/* Topnav + brand */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px clamp(16px, 3vw, var(--spacing-32));
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+  border-top: 4px solid var(--cud-red);
+}
+.topnav .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 17px;
+  white-space: nowrap;
+}
+.topnav .brand .leaf { color: var(--cud-red); }
+.topnav .right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.topnav .counter { font-family: var(--mono); font-size: var(--text-micro); color: var(--ink-3); min-width: 6ch; text-align: right; }
+
+/* Buttons — .btn (links) and topnav <button> share the same shape */
+.topnav button,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--navy);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.topnav button:hover,
+.btn:hover { border-color: var(--navy); }
+
+.btn.red { background: var(--cud-red); border-color: var(--cud-red); color: var(--paper); }
+.btn.red:hover { background: var(--cud-red-dark); border-color: var(--cud-red-dark); }
+
+.btn.purple { background: var(--violet); border-color: var(--violet); color: var(--paper); }
+.btn.purple:hover { background: var(--violet-dark); border-color: var(--violet-dark); }
+
+.btn.muted { color: var(--ink-3); border-color: var(--rule); background: var(--paper-2); }
+.btn.muted:hover { color: var(--ink-2); border-color: var(--ink-3); }
+
+@media (max-width: 640px) {
+  .topnav .counter { display: none; }
+  .topnav .right { flex-wrap: wrap; justify-content: flex-end; }
+}
+
+/* .box card */
+.box {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-18) var(--spacing-20);
+}
+.box h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  margin-bottom: 6px;
+}
+.box p { font-size: var(--text-body); color: var(--ink-2); }
+.box ul { margin: 6px 0 0 18px; font-size: var(--text-body); color: var(--ink-2); }
+.box li + li { margin-top: 4px; }
+
+/* Stat callout (a .box modifier) */
+.stat { text-align: left; }
+.stat b {
+  display: block;
+  font-family: var(--serif);
+  font-size: var(--text-stat);
+  font-weight: 600;
+  color: var(--cud-red);
+  line-height: 1;
+}
+.stat span { font-size: 13.5px; color: var(--ink-2); }
+
+/* Pill badges */
+.pill {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--navy);
+  background: var(--navy-soft);
+  border-radius: var(--radius-full);
+  padding: 3px 10px;
+}
+.pill.red { color: var(--cud-red-dark); background: var(--cud-red-soft); }
+.pill.ok { color: var(--ok); background: var(--ok-soft); }
+
+/* Flag / gap badges — same idea as .pill, rectangular radius */
+.flag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: var(--text-micro);
+  color: var(--warn);
+  background: var(--warn-soft);
+  border-radius: var(--radius-xs);
+  padding: 1px 6px;
+  vertical-align: middle;
+}
+.gap {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: var(--text-micro);
+  color: var(--navy);
+  background: var(--navy-soft);
+  border: 1px dashed var(--navy);
+  border-radius: var(--radius-xs);
+  padding: 1px 6px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Grid column system */
+.grid { display: grid; gap: var(--spacing-16); margin-top: var(--spacing-20); }
+.g2 { grid-template-columns: 1fr 1fr; }
+.g3 { grid-template-columns: repeat(3, 1fr); }
+.g4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .g3, .g4 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; margin-top: var(--spacing-18); font-size: var(--text-body); }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th {
+  font-size: var(--text-caption);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--ink-3);
+  font-weight: 600;
+  background: var(--paper-2);
+}
+td b { color: var(--navy-deep); }
+td code, .mono { font-family: var(--mono); font-size: 13px; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.table-wrap table { min-width: 640px; }
+tr.rec td { background: var(--cud-red-soft); }
+
+/* Elevated panel (.slide / section.variant / .set) */
+.panel {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+  padding: clamp(18px, 3.5vw, 56px);
+  position: relative;
+  scroll-margin-top: 80px;
+}
+
+/* Reveal-on-scroll utility (progressive enhancement, requires an IntersectionObserver in page JS) */
+[data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity .55s var(--ease), transform .55s var(--ease); }
+[data-reveal].in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}

@@ -1,0 +1,83 @@
+/*
+  CIMA Lab website - join.css
+  Page-specific styles for join.html only.
+  Load order: variables.css -> theme.css -> site.css -> pages/join.css
+  Tokens only: no new colors, the single --shadow, 10px cards, 14px panels, 999px pills.
+*/
+
+/* ---------- Page head ---------- */
+.page-head .btns { margin-top: var(--spacing-24); }
+/* Light banner has its own light background; frame it so it reads as a card on the gradient page head */
+.page-head .art img { border-radius: var(--radius-lg); border: 1px solid var(--rule); }
+
+/* ---------- Why join ---------- */
+.why .ico { letter-spacing: .04em; }
+
+/* ---------- Opportunity cards ---------- */
+.role { display: flex; flex-direction: column; }
+.role-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--spacing-10); flex-wrap: wrap; margin-bottom: var(--spacing-8); }
+.role-top h3 { font-size: var(--text-heading-sm); line-height: var(--leading-heading-sm); margin: 0; }
+.role-top .pill { flex: none; margin-top: 3px; white-space: nowrap; }
+.role > p { font-size: var(--text-body); color: var(--ink-2); }
+.role > p + p { margin-top: var(--spacing-8); }
+.role-meta { display: grid; gap: var(--spacing-6); margin-top: var(--spacing-14); padding-top: var(--spacing-12); border-top: 1px solid var(--rule); }
+.role-meta > div { display: flex; gap: var(--spacing-10); }
+.role-meta dt { flex: none; width: 62px; font-family: var(--mono); font-size: var(--text-micro); font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); padding-top: 3px; }
+.role-meta dd { font-size: var(--text-small); color: var(--ink-2); line-height: var(--leading-body); }
+.apply { margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: var(--spacing-6); min-height: 44px; padding-top: var(--spacing-14); font-size: var(--text-small); font-weight: 600; color: var(--cud-red-dark); text-decoration: none; }
+.apply:hover { text-decoration: underline; }
+.apply svg { width: 14px; height: 14px; flex: none; }
+
+/* ---------- How to apply ---------- */
+.steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-16); }
+.steps li { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r); box-shadow: var(--shadow); padding: var(--spacing-20); }
+.steps .n { display: block; font-family: var(--mono); font-size: var(--text-caption); font-weight: 500; letter-spacing: .08em; color: var(--cud-red); margin-bottom: var(--spacing-10); }
+.steps h3 { font-size: var(--text-heading-sm); margin-bottom: var(--spacing-6); }
+.steps p { font-size: var(--text-body); color: var(--ink-2); }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+
+/* ---------- Contact ---------- */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(18px, 3vw, 32px); align-items: start; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-grid .panel { padding: clamp(20px, 3vw, 32px); }
+.form-head { margin-bottom: var(--spacing-18); }
+.form-head h3 { font-size: var(--text-heading-sm); }
+.form-head p { font-size: var(--text-body); color: var(--ink-2); margin-top: var(--spacing-6); }
+.req { color: var(--cud-red); font-weight: 700; }
+.field select[aria-invalid="true"] { border-color: var(--cud-red); }
+.field.check .check-row { display: flex; align-items: flex-start; gap: var(--spacing-10); }
+.field.check input { width: 18px; height: 18px; min-height: 18px; flex: none; margin: 13px 0 0; padding: 0; accent-color: var(--cud-red); }
+.field.check label { margin: 0; padding: var(--spacing-12) 0; font-size: var(--text-small); font-weight: 400; color: var(--ink-2); line-height: var(--leading-body); }
+.form .btns { margin-top: var(--spacing-4); }
+.form-foot { margin-top: var(--spacing-16); padding-top: var(--spacing-14); border-top: 1px solid var(--rule); }
+.form-foot .note { display: block; font-size: var(--text-caption); color: var(--ink-3); line-height: var(--leading-body); }
+.form-foot .note + .note { margin-top: var(--spacing-8); }
+.form-foot code { font-family: var(--mono); font-size: var(--text-micro); color: var(--navy); background: var(--navy-soft); border-radius: var(--radius-xs); padding: 1px 6px; }
+
+/* ---------- Key contacts ---------- */
+.contact-side h3.side-h { font-family: var(--mono); font-size: var(--text-caption); font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); padding-bottom: var(--spacing-8); border-bottom: 1px solid var(--rule); margin-bottom: var(--spacing-14); }
+.kc-list { display: grid; gap: var(--spacing-14); }
+.kc { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: var(--spacing-14); align-items: start; }
+.kc .av { width: 44px; height: 44px; border-radius: var(--radius-circle); background: var(--navy-soft); color: var(--navy); display: grid; place-items: center; font-family: var(--mono); font-size: var(--text-small); font-weight: 500; letter-spacing: .04em; }
+.kc .av.red { background: var(--cud-red-soft); color: var(--cud-red-dark); }
+.kc h3 { font-size: var(--text-base); margin: 0; }
+.kc .who { display: block; font-family: var(--mono); font-size: var(--text-micro); font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); margin-top: var(--spacing-4); }
+.kc p { font-size: var(--text-small); color: var(--ink-2); margin-top: var(--spacing-8); line-height: var(--leading-body); }
+.kc .soc { margin-top: var(--spacing-12); }
+.visit p { font-size: var(--text-small); }
+.visit address { font-style: normal; font-size: var(--text-small); color: var(--navy-deep); font-weight: 600; line-height: var(--leading-body); margin-top: var(--spacing-12); }
+.visit .soc { margin-top: var(--spacing-12); }
+
+/* ---------- FAQ ---------- */
+.faq { display: grid; gap: var(--spacing-10); }
+.faq details { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r); }
+.faq summary { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-16); min-height: 44px; padding: var(--spacing-12) var(--spacing-20); cursor: pointer; list-style: none; font-family: var(--serif); font-size: var(--text-base); font-weight: 600; color: var(--navy-deep); line-height: var(--leading-heading-sm); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; font-family: var(--mono); font-size: 18px; line-height: 1; color: var(--cud-red); transition: transform .18s var(--ease); }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details[open] summary { border-bottom: 1px solid var(--rule); }
+.faq details > p { padding: var(--spacing-14) var(--spacing-20) var(--spacing-18); font-size: var(--text-body); color: var(--ink-2); }
+@media (prefers-reduced-motion: reduce) { .faq summary::after { transition: none; } }
+
+/* Deep links from people.html land clear of the sticky header */
+.card.role { scroll-margin-top: calc(var(--unibar-h) + var(--header-h) + 16px); }

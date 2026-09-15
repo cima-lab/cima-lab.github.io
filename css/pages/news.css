@@ -1,0 +1,55 @@
+/*
+  CIMA Lab website - news.css
+  Page-specific styles for news/index.html. Tokens only (variables.css /
+  theme.css / site.css already loaded); no new colors, one shadow (--shadow),
+  10px card radius (--r), 14px panel radius (--radius-xl), 999px pills.
+*/
+
+/* ---------- Pinned item (real content, no skeleton) ---------- */
+.news-pinned .pill { margin-bottom: 14px; }
+.news-pinned h3 { font-size: var(--text-heading-sm); margin-bottom: 4px; }
+.news-pinned .date { font-family: var(--mono); font-size: var(--text-caption); letter-spacing: .04em; color: var(--ink-3); margin-bottom: 14px; }
+.news-pinned p:not(.date) { color: var(--ink-2); font-size: var(--text-lede); }
+.news-pinned .btn { margin-top: 20px; }
+
+/* ---------- Coming-soon grid cards ---------- */
+.soon-card .skeleton.block { margin-bottom: 14px; border-radius: var(--radius-lg); }
+
+/* ---------- Newsletter / updates box ---------- */
+.news-updates { text-align: center; }
+.news-updates .btns { justify-content: center; margin-top: 14px; }
+
+/* ---------- Page-head artwork: square mark, shown big and centred in its column ---------- */
+.page-head .art { justify-content: center; }
+.page-head .art img { max-width: 360px; }
+@media (max-width: 860px) { .page-head .art img { max-width: 220px; } }
+
+/* ---------- Real post card in the grid ---------- */
+.news-card { background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r); padding: 20px; box-shadow: var(--shadow); display: flex; flex-direction: column; transition: border-color .18s var(--ease); }
+.news-card:hover { border-color: var(--navy); }
+.news-card .thumb { display: block; border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 14px; aspect-ratio: 16 / 9; background: var(--navy-soft); }
+.news-card .thumb img { width: 100%; height: 100%; object-fit: cover; }
+.news-card .pill { align-self: flex-start; margin-bottom: 10px; }
+.news-card h3 { font-size: var(--text-heading-sm); margin-bottom: 8px; }
+.news-card h3 a { color: inherit; text-decoration: none; }
+.news-card h3 a:hover { color: var(--cud-red-dark); }
+.news-card p { color: var(--ink-2); font-size: var(--text-body); }
+
+/* ---------- Single post page ---------- */
+.post-meta { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-family: var(--mono); font-size: var(--text-caption); letter-spacing: .04em; color: var(--ink-3); }
+.post-meta time { color: var(--navy-deep); }
+.post-hero { margin: 0 0 clamp(24px, 4vw, 40px); }
+.post-hero img { width: 100%; height: auto; border-radius: var(--radius-xl); box-shadow: var(--shadow); }
+.post-hero figcaption { margin-top: 10px; font-size: var(--text-small); color: var(--ink-3); }
+.post-body p { font-size: var(--text-lede); color: var(--ink-2); line-height: var(--leading-base); margin-bottom: 18px; }
+.post-body p em { font-style: italic; color: var(--navy-deep); }
+.post-body .btns { margin: 8px 0 clamp(28px, 4vw, 44px); }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--spacing-14); }
+.gallery figure { margin: 0; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3 / 2; background: var(--navy-soft); }
+.gallery img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 720px) { .gallery { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 460px) { .gallery { grid-template-columns: 1fr; } }
+.credit { margin-top: 10px; font-size: var(--text-small); color: var(--ink-3); }
+.back { margin-top: clamp(28px, 4vw, 44px); }
+.back a { font-weight: 600; text-decoration: none; }
+.back a:hover { text-decoration: underline; }
