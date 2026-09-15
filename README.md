@@ -71,3 +71,18 @@ Then open <http://localhost:8080/>. Fonts load from Google Fonts, everything els
 Push this directory to the `cima-lab.github.io` repository (or configure Pages to serve the
 `cima-website` folder). No build step is required. Point the university subdomain at Pages
 with a CNAME record when the domain is approved.
+
+## Credits and licence
+
+Site design and code by [Tahamid Hossain](https://github.com/thtahamid).
+
+The site source code (HTML, CSS, JavaScript) is released under the MIT licence,
+copyright 2026 CIMA Lab, Canadian University Dubai. See [LICENSE](LICENSE).
+
+The MIT licence does **not** cover:
+
+- `assets/` - logos, banners, and photographs of lab members
+- the written content of the pages (bios, project descriptions, news posts)
+
+Those remain the property of CIMA Lab / Canadian University Dubai and are not
+licensed for reuse.
