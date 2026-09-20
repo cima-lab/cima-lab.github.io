@@ -265,18 +265,48 @@
           </div>
           <div>
             <h3><a href="https://github.com/cima-lab/vEMstitch" target="_blank" rel="noopener">vEMstitch</a></h3>
-            <p>Fully automatic stitching of serial-section electron microscopy tiles, robust to rotation and to the local non-rigid distortion introduced during sectioning. The workflow runs a fast, robust basic stitch first, then an optional refinement pass that re-extracts features only for the sections where misalignment is still visible. Python and C++ implementations are provided, validated on simulated data derived from CREMI covering translation, rotation and rigid transforms with local distortion at several noise levels, as well as on real mussel tissue imagery.</p>
+            <p>Fully automatic stitching of serial-section electron microscopy tiles, robust to rotation and to the local non-rigid distortion introduced during sectioning. The workflow runs a fast, robust basic stitch first, then an optional refinement pass that re-extracts features only for the sections where misalignment is still visible. Python and C++ implementations are provided, validated on simulated data derived from CREMI covering translation, rotation and rigid transforms with local distortion at several noise levels, as well as on real mussel tissue imagery. A Windows desktop interface, vEMstitch Workbench, runs the C++ implementation directly: a folder of tiles is opened, stitched section by section, and the result inspected without the command line.</p>
             <div class="tags">
               <span>Stage 1 · Stitching</span>
               <span>Partner method · Shandong University</span>
               <span>Python · C++</span>
               <span>GPL-3.0 code · CC0 data</span>
+              <span>Desktop interface · Windows</span>
             </div>
             <div class="meta">
               <span><b>Supervisor:</b> <a href="https://www.cud.ac.ae/personnel/dr-haytham-el-messiry" target="_blank" rel="noopener">Dr. Haythem El-Messiry</a></span>
             </div>
             <div class="actions">
               <a class="btn" href="https://github.com/cima-lab/vEMstitch" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-github"></use></svg> View on GitHub</a>
+              <a class="btn" href="https://github.com/hotzero796-tech/VEMstitch-GUI" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-github"></use></svg> Workbench · Windows GUI</a>
+              <span class="btn scoped"><svg aria-hidden="true"><use href="#i-web"></use></svg> Project site · coming soon</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- vEMstitch Workbench -->
+        <article class="hcard compact" data-reveal>
+          <div class="media">
+            <div class="mstack">
+              <svg class="mglyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M6 10h36v28H6z"/><path d="M6 18h36"/><path d="M13 25h9v9h-9z"/><path d="M26 25h9v9h-9z"/></svg>
+              <span class="glyph">Interface</span>
+            </div>
+          </div>
+          <div>
+            <h3><a href="https://github.com/hotzero796-tech/VEMstitch-GUI" target="_blank" rel="noopener">vEMstitch Workbench</a></h3>
+            <p>A Windows desktop interface for the Stage 1 stitcher, written in C++ with Dear ImGui on Win32 and Direct3D 11. The vEMstitch C++ code is compiled in unchanged and driven step by step, so a run can be watched and stopped. A folder of tiles named by section, row and column is opened directly; the tiles are shown as a grid, the mosaic in a zoomable viewer, and every step is reported with its time alongside the messages the stitcher itself prints. One section or a whole folder can be stitched, with the authors' optional refinement pass exposed as a single switch. A 3 x 3 section of 2048 x 1768 tiles takes about eighty seconds.</p>
+            <div class="tags">
+              <span>Stage 1 · Interface</span>
+              <span>CUD lead</span>
+              <span>C++ · Dear ImGui · OpenCV</span>
+              <span>GPL-3.0</span>
+            </div>
+            <div class="meta">
+              <span><b>Supervisor:</b> <a href="https://www.cud.ac.ae/personnel/dr-haytham-el-messiry" target="_blank" rel="noopener">Dr. Haythem El-Messiry</a></span>
+              <span><b>Owner:</b> Abdulrahman Ali</span>
+            </div>
+            <div class="actions">
+              <a class="btn" href="https://github.com/hotzero796-tech/VEMstitch-GUI" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-github"></use></svg> View on GitHub</a>
               <span class="btn scoped"><svg aria-hidden="true"><use href="#i-web"></use></svg> Project site · coming soon</span>
             </div>
           </div>
