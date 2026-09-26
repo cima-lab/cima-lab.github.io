@@ -31,11 +31,11 @@
 .stack .hcard p { max-width: none; }
 
 /* Key projects: two cards per row, media on top */
-.projects2 { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
+/* Cards size to their own content: one card carrying a sub-component must not
+   drag an empty tail onto its row neighbour. */
+.projects2 { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
 .projects2 .hcard.compact { grid-template-columns: 1fr; gap: var(--spacing-16); }
 .projects2 .hcard.compact .media { display: grid; aspect-ratio: 16 / 6; width: 100%; }
-.projects2 .hcard.compact > div:last-child { display: flex; flex-direction: column; }
-.projects2 .hcard.compact .actions { margin-top: auto; padding-top: var(--spacing-16); }
 @media (max-width: 900px) { .projects2 { grid-template-columns: 1fr; } }
 
 /* ---------- Pill row inside a card ---------- */
@@ -53,6 +53,30 @@
 .hcard.compact .media .mglyph { width: 34px; height: 34px; }
 @media (max-width: 760px) {
   .hcard .media .mglyph { width: 44px; height: 44px; }
+}
+
+/* ---------- Screenshot in a card ---------- */
+/* A figure under the card copy, showing a whole application window. */
+.hcard figure.shot { margin: 0 0 var(--spacing-16); }
+.hcard figure.shot a { display: block; }
+.hcard figure.shot img {
+  width: 100%; height: auto; display: block;
+  border: 1px solid var(--rule); border-radius: var(--radius-md); background: var(--paper);
+}
+.hcard figure.shot figcaption { margin-top: var(--spacing-6); font-size: var(--text-small); color: var(--ink-3); }
+
+/* ---------- Component sub-card inside a project card ---------- */
+/* A piece that belongs to the project above it (an interface, a viewer), set
+   off by a rule rather than promoted to a card of its own. */
+.hcard .subcard { margin-top: var(--spacing-20); padding-top: var(--spacing-16); border-top: 1px solid var(--rule); }
+.hcard .subcard h4 {
+  font-family: var(--serif); font-size: var(--text-heading-sm); font-weight: 600;
+  color: var(--navy-deep); line-height: var(--leading-heading-sm); margin: 0 0 var(--spacing-10);
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--spacing-10);
+}
+.hcard .subcard h4 .sub {
+  font-family: var(--mono); font-size: var(--text-micro); font-weight: 400;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3);
 }
 
 /* ---------- Pipeline strip (4 stages of the vEM grant) ---------- */
